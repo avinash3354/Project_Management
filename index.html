@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Management System | Task Assignment & Tracking</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="navbar-brand">
+        <span class="logo">📋</span>
+        <span class="brand-text">Project Management System</span>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="anchor_links">
+        <a href="register.html">Register</a>
+        <a href="login.html">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Assign & Manage Projects Seamlessly</h1>
+      <p>
+        Collaborate efficiently, track progress, and assign tasks with ease — all in one simple dashboard.
+      </p>
+      <div class="hero-buttons">
+        <a href="register.html" class="btn primary">Get Started</a>
+        <a href="login.html" class="btn secondary">Login</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://img.freepik.com/premium-vector/project-management-flat-style-design-vector-illustration-stock-illustration_357500-2264.jpg" alt="Project Management Illustration">
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Project Management System | Designed by Avinash</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector(".anchor_links");
+      menu.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>

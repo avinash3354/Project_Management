@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Project Management</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+  <div class="register-container">
+    <div class="register-box">
+      <h2>📝 Create Account</h2>
+      <form onsubmit="return handleRegister(event)">
+        <div class="input-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" placeholder="Enter your full name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Create a password" required>
+        </div>
+        <div class="input-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <p class="login-text">Already have an account? <a href="login.html">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function handleRegister(event) {
+      event.preventDefault();
+      
+      const fullname = document.getElementById("fullname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("❌ Passwords do not match!");
+        return false;
+      }
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      const userExists = users.some(user => user.email === email);
+      if (userExists) {
+        alert("⚠️ This email is already registered. Please login instead.");
+        return false;
+      }
+      const newUser = {
+        fullname: fullname,
+        email: email,
+        password: password
+      };
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("✅ Registration successful! Please login now.");
+      window.location.href = "login.html"; 
+    }
+  </script>
+</body>
+</html>
